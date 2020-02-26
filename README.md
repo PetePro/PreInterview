@@ -1,2 +1,2 @@
 # PreInterview
-Interview practices, including Leetcode and newcoder. 
+Interview practices. 
