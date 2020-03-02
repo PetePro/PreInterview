@@ -11,7 +11,7 @@ import org.junit.Test;
 
 import leetcode.algorithms.difficult.*;
 
-public class AlgorithmsDifficult {
+public class AlgorithmsDifficultTest {
 
 	private A0004 a0004 = new A0004();
 	private A0010 a0010 = new A0010();

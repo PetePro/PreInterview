@@ -31,6 +31,10 @@ public class AlgorithmsMediumTest {
 	private A0040 a0040 = new A0040();
 	private A0043 a0043 = new A0043();
 	private A0046 a0046 = new A0046();
+	private A0047 a0047 = new A0047();
+	private A0048 a0048 = new A0048();
+	private A0049 a0049 = new A0049();
+	private A0050 a0050 = new A0050();
 
 	@Test
 	public void testA0003() {
@@ -189,6 +193,43 @@ public class AlgorithmsMediumTest {
 				Arrays.asList(2, 1, 3), Arrays.asList(2, 3, 1), Arrays.asList(3, 1, 2), Arrays.asList(3, 2, 1));
 		assertEquals(expect.size(), res.size());
 		assertTrue(res.containsAll(expect));
+	}
+
+	@Test
+	public void testA0047() {
+		List<List<Integer>> res = a0047.permuteUnique(new int[] { 1, 1, 2 });
+		List<List<Integer>> expect = Arrays.asList(Arrays.asList(1, 1, 2), Arrays.asList(1, 2, 1),
+				Arrays.asList(2, 1, 1));
+		assertEquals(expect.size(), res.size());
+		assertTrue(res.containsAll(expect));
+	}
+
+	@Test
+	public void testA0048() {
+		int[][] matrix1 = { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } },
+				matrix2 = { { 5, 1, 9, 11 }, { 2, 4, 8, 10 }, { 13, 3, 6, 7 }, { 15, 14, 12, 16 } };
+		int[][] expect1 = { { 7, 4, 1 }, { 8, 5, 2 }, { 9, 6, 3 } },
+				expect2 = { { 15, 13, 2, 5 }, { 14, 3, 4, 1 }, { 12, 6, 8, 9 }, { 16, 7, 10, 11 } };
+		a0048.rotate(matrix1);
+		a0048.rotate(matrix2);
+		assertArrayEquals(expect1, matrix1);
+		assertArrayEquals(expect2, matrix2);
+	}
+
+	@Test
+	public void testA0049() {
+		List<List<String>> res = a0049.groupAnagrams(new String[] { "eat", "tea", "tan", "ate", "nat", "bat" });
+		List<List<String>> expect = Arrays.asList(Arrays.asList("ate", "eat", "tea"), Arrays.asList("nat", "tan"),
+				Arrays.asList("bat"));
+		assertEquals(expect.size(), res.size());
+		// assertTrue(res.containsAll(expect));
+	}
+
+	@Test
+	public void testA0050() {
+		assertEquals(1024.00000, a0050.myPow(2.00000, 10), 0.00001);
+		assertEquals(9.26100, a0050.myPow(2.10000, 3), 0.00001);
+		assertEquals(0.25000, a0050.myPow(2.00000, -2), 0.00001);
 	}
 
 }
