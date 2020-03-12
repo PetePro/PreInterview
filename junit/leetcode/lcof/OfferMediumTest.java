@@ -13,6 +13,7 @@ public class OfferMediumTest {
 	private O014I o014i = new O014I();
 	private O014II o014ii = new O014II();
 	private O016 o016 = new O016();
+	private O031 o031 = new O031();
 
 	@Test
 	public void testO012() {
@@ -46,6 +47,26 @@ public class OfferMediumTest {
 		assertEquals(1024.00000, o016.myPow(2.00000, 10), 0.00001);
 		assertEquals(9.26100, o016.myPow(2.10000, 3), 0.00001);
 		assertEquals(0.25000, o016.myPow(2.00000, -2), 0.00001);
+	}
+
+	@Test
+	public void testO020() {
+		assertTrue((new O020()).isNumber("+100"));
+		//assertTrue((new O020()).isNumber("5e2"));
+		assertTrue((new O020()).isNumber("-123"));
+		assertTrue((new O020()).isNumber("3.1415926"));
+		assertTrue((new O020()).isNumber("-1E-16"));
+		assertFalse((new O020()).isNumber("12e"));
+		assertFalse((new O020()).isNumber("1a3.14"));
+		assertFalse((new O020()).isNumber("1.2.3"));
+		assertFalse((new O020()).isNumber("+-5"));
+		assertFalse((new O020()).isNumber("12e+5.4"));
+	}
+
+	@Test
+	public void testO031() {
+		assertTrue(o031.validateStackSequences(new int[] { 1, 2, 3, 4, 5 }, new int[] { 4, 5, 3, 2, 1 }));
+		assertFalse(o031.validateStackSequences(new int[] { 1, 2, 3, 4, 5 }, new int[] { 4, 3, 5, 1, 2 }));
 	}
 
 }

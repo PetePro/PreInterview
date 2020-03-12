@@ -16,6 +16,8 @@ public class OfferSimpleTest {
 	private O011 o011 = new O011();
 	private O015 o015 = new O015();
 	private O017 o017 = new O017();
+	private O021 o021 = new O021();
+	private O029 o029 = new O029();
 
 	@Test
 	public void testO003() {
@@ -63,6 +65,21 @@ public class OfferSimpleTest {
 	public void testO017() {
 		int[] expected = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
 		assertArrayEquals(expected, o017.printNumbers(1));
+	}
+
+	@Test
+	public void testO021() {
+		int[] expected = new int[] { 1, 3, 2, 4 };
+		assertArrayEquals(expected, o021.exchange(new int[] { 1, 2, 3, 4 }));
+	}
+
+	@Test
+	public void testO029() {
+		int[][] matrix1 = { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } },
+				matrix2 = { { 1, 2, 3, 4 }, { 5, 6, 7, 8 }, { 9, 10, 11, 12 } };
+		int[] expected1 = { 1, 2, 3, 6, 9, 8, 7, 4, 5 }, expected2 = { 1, 2, 3, 4, 8, 12, 11, 10, 9, 5, 6, 7 };
+		assertArrayEquals(expected1, o029.spiralOrder(matrix1));
+		assertArrayEquals(expected2, o029.spiralOrder(matrix2));
 	}
 
 }

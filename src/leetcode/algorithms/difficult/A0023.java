@@ -1,5 +1,7 @@
 package leetcode.algorithms.difficult;
 
+import leetcode.ListNode;
+
 /**
  * 23. 合并K个排序链表
  * 合并 k 个排序链表，返回合并后的排序链表。请分析和描述算法的复杂度。
@@ -18,15 +20,6 @@ package leetcode.algorithms.difficult;
  */
 
 public class A0023 {
-
-	public class ListNode {
-		int val;
-		ListNode next;
-
-		ListNode(int x) {
-			val = x;
-		}
-	}
 
 	public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
 		ListNode res = new ListNode(0);

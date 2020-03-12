@@ -29,6 +29,7 @@ package leetcode.algorithms.difficult;
  */
 
 public class A0004 {
+	
 	public double findMedianSortedArrays(int[] nums1, int[] nums2) {
 		int m = nums1.length, n = nums2.length;
 		int left = (m + n + 1) / 2, right = (m + n + 2) / 2;

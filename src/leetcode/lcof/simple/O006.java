@@ -1,5 +1,7 @@
 package leetcode.lcof.simple;
 
+import leetcode.ListNode;
+
 /**
  * 面试题06. 从尾到头打印链表
  * 输入一个链表的头节点，从尾到头反过来返回每个节点的值（用数组返回）。
@@ -7,15 +9,6 @@ package leetcode.lcof.simple;
  */
 
 public class O006 {
-
-	public class ListNode {
-		int val;
-		ListNode next;
-
-		ListNode(int x) {
-			val = x;
-		}
-	}
 
 	public int[] reversePrint(ListNode head) {
 		int num = 0;

@@ -1,5 +1,7 @@
 package leetcode.algorithms.difficult;
 
+import leetcode.ListNode;
+
 /**
  * 25. K 个一组翻转链表
  * 给你一个链表，每 k 个节点一组进行翻转，请你返回翻转后的链表。
@@ -16,15 +18,6 @@ package leetcode.algorithms.difficult;
  */
 
 public class A0025 {
-
-	public class ListNode {
-		int val;
-		ListNode next;
-
-		ListNode(int x) {
-			val = x;
-		}
-	}
 
 	public ListNode reverseKGroup(ListNode head, int k) {
 		ListNode res = new ListNode(0);

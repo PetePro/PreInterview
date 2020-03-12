@@ -1,5 +1,7 @@
 package leetcode.algorithms.medium;
 
+import leetcode.ListNode;
+
 /**
  * 24. 两两交换链表中的节点
  * 给定一个链表，两两交换其中相邻的节点，并返回交换后的链表。
@@ -11,15 +13,6 @@ package leetcode.algorithms.medium;
  */
 
 public class A0024 {
-
-	public class ListNode {
-		int val;
-		ListNode next;
-
-		ListNode(int x) {
-			val = x;
-		}
-	}
 
 	public ListNode swapPairs(ListNode head) {
 		ListNode res = new ListNode(0);

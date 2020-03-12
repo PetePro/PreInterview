@@ -2,6 +2,8 @@ package leetcode.lcof.medium;
 
 import java.util.Arrays;
 
+import leetcode.TreeNode;
+
 /**
  * 面试题07. 重建二叉树
  * 输入某二叉树的前序遍历和中序遍历的结果，请重建该二叉树。假设输入的前序遍历和中序遍历的结果中都不含重复的数字。
@@ -9,16 +11,6 @@ import java.util.Arrays;
  */
 
 public class O007 {
-
-	public class TreeNode {
-		int val;
-		TreeNode left;
-		TreeNode right;
-
-		TreeNode(int x) {
-			val = x;
-		}
-	}
 
 	public TreeNode buildTree(int[] preorder, int[] inorder) {
 		int n = preorder.length;
