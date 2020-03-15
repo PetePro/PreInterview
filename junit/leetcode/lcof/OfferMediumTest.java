@@ -14,6 +14,7 @@ public class OfferMediumTest {
 	private O014II o014ii = new O014II();
 	private O016 o016 = new O016();
 	private O031 o031 = new O031();
+	private O033 o033 = new O033();
 
 	@Test
 	public void testO012() {
@@ -67,6 +68,12 @@ public class OfferMediumTest {
 	public void testO031() {
 		assertTrue(o031.validateStackSequences(new int[] { 1, 2, 3, 4, 5 }, new int[] { 4, 5, 3, 2, 1 }));
 		assertFalse(o031.validateStackSequences(new int[] { 1, 2, 3, 4, 5 }, new int[] { 4, 3, 5, 1, 2 }));
+	}
+
+	@Test
+	public void testO033() {
+		assertTrue(o033.verifyPostorder(new int[] { 1, 3, 2, 6, 5 }));
+		assertFalse(o033.verifyPostorder(new int[] { 1, 6, 3, 2, 5 }));
 	}
 
 }
