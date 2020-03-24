@@ -19,13 +19,13 @@ public class O032I {
 		Queue<TreeNode> queue = new LinkedList<TreeNode>();
 		List<Integer> list = new ArrayList<Integer>();
 		if (root != null)
-			queue.add(root);
+			queue.offer(root);
 		while (!queue.isEmpty()) {
 			TreeNode tmp = queue.poll();
 			if (tmp.left != null)
-				queue.add(tmp.left);
+				queue.offer(tmp.left);
 			if (tmp.right != null)
-				queue.add(tmp.right);
+				queue.offer(tmp.right);
 			list.add(tmp.val);
 		}
 		int[] res = new int[list.size()];

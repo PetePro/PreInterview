@@ -15,6 +15,14 @@ public class OfferMediumTest {
 	private O016 o016 = new O016();
 	private O031 o031 = new O031();
 	private O033 o033 = new O033();
+	private O038 o038 = new O038();
+	private O043 o043 = new O043();
+	private O044 o044 = new O044();
+	private O045 o045 = new O045();
+	private O046 o046 = new O046();
+	private O047 o047 = new O047();
+	private O048 o048 = new O048();
+	private O049 o049 = new O049();
 
 	@Test
 	public void testO012() {
@@ -74,6 +82,53 @@ public class OfferMediumTest {
 	public void testO033() {
 		assertTrue(o033.verifyPostorder(new int[] { 1, 3, 2, 6, 5 }));
 		assertFalse(o033.verifyPostorder(new int[] { 1, 6, 3, 2, 5 }));
+	}
+
+	@Test
+	public void testO038() {
+		String[] expected = { "abc", "acb", "bac", "bca", "cab", "cba" };
+		assertArrayEquals(expected, o038.permutation("abc"));
+	}
+
+	@Test
+	public void testO043() {
+		assertEquals(5, o043.countDigitOne(12));
+		assertEquals(6, o043.countDigitOne(13));
+	}
+
+	@Test
+	public void testO044() {
+		assertEquals(9, o044.findNthDigit(9));
+		assertEquals(0, o044.findNthDigit(11));
+	}
+
+	@Test
+	public void testO045() {
+		assertEquals("102", o045.minNumber(new int[] { 10, 2 }));
+		assertEquals("3033459", o045.minNumber(new int[] { 3, 30, 34, 5, 9 }));
+	}
+
+	@Test
+	public void testO046() {
+		assertEquals(5, o046.translateNum(12258));
+	}
+
+	@Test
+	public void testO047() {
+		int[][] grid = { { 1, 3, 1 }, { 1, 5, 1 }, { 4, 2, 1 } };
+		assertEquals(12, o047.maxValue(grid));
+	}
+
+	@Test
+	public void testO048() {
+		assertEquals(3, o048.lengthOfLongestSubstring("abcabcbb"));
+		assertEquals(1, o048.lengthOfLongestSubstring("bbbbb"));
+		assertEquals(3, o048.lengthOfLongestSubstring("pwwkew"));
+	}
+
+	@Test
+	public void testO049() {
+		assertEquals(12, o049.nthUglyNumber(10));
 	}
 
 }

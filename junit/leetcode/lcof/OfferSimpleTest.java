@@ -18,6 +18,10 @@ public class OfferSimpleTest {
 	private O017 o017 = new O017();
 	private O021 o021 = new O021();
 	private O029 o029 = new O029();
+	private O039 o039 = new O039();
+	private O040 o040 = new O040();
+	private O042 o042 = new O042();
+	private O050 o050 = new O050();
 
 	@Test
 	public void testO003() {
@@ -80,6 +84,28 @@ public class OfferSimpleTest {
 		int[] expected1 = { 1, 2, 3, 6, 9, 8, 7, 4, 5 }, expected2 = { 1, 2, 3, 4, 8, 12, 11, 10, 9, 5, 6, 7 };
 		assertArrayEquals(expected1, o029.spiralOrder(matrix1));
 		assertArrayEquals(expected2, o029.spiralOrder(matrix2));
+	}
+
+	@Test
+	public void testO039() {
+		assertEquals(2, o039.majorityElement(new int[] { 1, 2, 3, 2, 2, 2, 5, 4, 2 }));
+	}
+
+	@Test
+	public void testO040() {
+		assertArrayEquals(new int[] { 0 }, o040.getLeastNumbers(new int[] { 0, 1, 2, 1 }, 1));
+		assertArrayEquals(new int[] { 1, 2 }, o040.getLeastNumbers(new int[] { 1, 2, 3 }, 2));
+	}
+
+	@Test
+	public void testO042() {
+		assertEquals(6, o042.maxSubArray(new int[] { -2, 1, -3, 4, -1, 2, 1, -5, 4 }));
+	}
+
+	@Test
+	public void testO050() {
+		assertEquals('b', o050.firstUniqChar("abaccdeff"));
+		assertEquals(' ', o050.firstUniqChar(""));
 	}
 
 }
