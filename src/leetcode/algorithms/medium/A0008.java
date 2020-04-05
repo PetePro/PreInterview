@@ -37,6 +37,7 @@ package leetcode.algorithms.medium;
  */
 
 public class A0008 {
+	
 	public int myAtoi(String str) {
 		int res = 0;
 		int flag = 1;

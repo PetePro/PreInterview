@@ -34,7 +34,9 @@ public class A0003 {
 
 	public static void main(String[] args) {
 		A0003 a = new A0003();
-		System.out.println(a.lengthOfLongestSubstring("bbbb"));
+		System.out.println(a.lengthOfLongestSubstring("abcabcbb"));
+		//String s = "abcabcbb";
+		//System.out.println(s.substring(0, 0));
 	}
 
 }
