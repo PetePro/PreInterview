@@ -12,11 +12,9 @@ import leetcode.ListNode;
 public class O022 {
 
 	public ListNode getKthFromEnd(ListNode head, int k) {
-		ListNode p = head, q = p;
-		while (q != null && k != 0) {
+		ListNode p = head, q = head;
+		for (int i = 0; i < k; i++)
 			q = q.next;
-			k--;
-		}
 		while (q != null) {
 			p = p.next;
 			q = q.next;

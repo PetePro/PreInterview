@@ -14,13 +14,13 @@ import leetcode.TreeNode;
 public class O034 {
 
 	public List<List<Integer>> pathSum(TreeNode root, int sum) {
-		List<List<Integer>> res = new ArrayList<List<Integer>>();
+		List<List<Integer>> res = new ArrayList<>();
 		List<Integer> path = new ArrayList<>();
-		path(res, path, root, sum);
+		pathSum(root, sum, res, path);
 		return res;
 	}
 
-	public void path(List<List<Integer>> res, List<Integer> path, TreeNode root, int sum) {
+	public void pathSum(TreeNode root, int sum, List<List<Integer>> res, List<Integer> path) {
 		if (root == null)
 			return;
 		path.add(root.val);
@@ -30,8 +30,8 @@ public class O034 {
 			path.remove(path.size() - 1);
 			return;
 		}
-		path(res, path, root.left, sum);
-		path(res, path, root.right, sum);
+		pathSum(root.left, sum, res, path);
+		pathSum(root.right, sum, res, path);
 		path.remove(path.size() - 1);
 	}
 

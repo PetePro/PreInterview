@@ -11,23 +11,39 @@ import leetcode.ListNode;
 public class O025 {
 
 	public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
-		ListNode head = new ListNode(0);
-		ListNode p = l1, q = l2, r = head;
-		while (p != null && q != null) {
-			if (p.val <= q.val) {
-				r.next = p;
-				p = p.next;
+		ListNode res = new ListNode(0);
+		ListNode p = res, p1 = l1, p2 = l2;
+		while (p1 != null && p2 != null) {
+			if (p1.val < p2.val) {
+				p.next = p1;
+				p1 = p1.next;
 			} else {
-				r.next = q;
-				q = q.next;
+				p.next = p2;
+				p2 = p2.next;
 			}
-			r = r.next;
+			p = p.next;
 		}
-		if (p != null)
-			r.next = p;
-		if (q != null)
-			r.next = q;
-		return head.next;
+		if (p1 != null)
+			p.next = p1;
+		if (p2 != null)
+			p.next = p2;
+		return res.next;
+	}
+
+	public ListNode mergeTwoLists2(ListNode l1, ListNode l2) {
+		if (l1 == null)
+			return l2;
+		if (l2 == null)
+			return l1;
+		ListNode p = null;
+		if (l1.val < l2.val) {
+			p = l1;
+			p.next = mergeTwoLists2(l1.next, l2);
+		} else {
+			p = l2;
+			p.next = mergeTwoLists2(l1, l2.next);
+		}
+		return p;
 	}
 
 }

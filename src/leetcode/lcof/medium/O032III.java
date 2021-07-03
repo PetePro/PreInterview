@@ -17,27 +17,28 @@ import leetcode.TreeNode;
 public class O032III {
 
 	public List<List<Integer>> levelOrder(TreeNode root) {
-		Deque<TreeNode> queue = new LinkedList<TreeNode>();
-		List<List<Integer>> res = new ArrayList<List<Integer>>();
-		if (root != null)
-			queue.add(root);
+		if (root == null)
+			return null;
+		List<List<Integer>> res = new ArrayList<>();
+		Deque<TreeNode> queue = new LinkedList<>();
+		queue.offer(root);
 		TreeNode flag = root;
-		List<Integer> ans = new ArrayList<>();
 		int level = 1;
+		List<Integer> list = new ArrayList<>();
 		while (!queue.isEmpty()) {
-			TreeNode tmp = queue.poll();
-			ans.add(tmp.val);
-			if (tmp.left != null)
-				queue.add(tmp.left);
-			if (tmp.right != null)
-				queue.add(tmp.right);
-			if (flag == tmp) {
+			TreeNode node = queue.poll();
+			list.add(node.val);
+			if (node.left != null)
+				queue.offer(node.left);
+			if (node.right != null)
+				queue.offer(node.right);
+			if (flag == node) {
 				flag = queue.peekLast();
 				if (level % 2 == 0)
-					Collections.reverse(ans);
-				res.add(ans);
+					Collections.reverse(list);
+				res.add(list);
 				level++;
-				ans = new ArrayList<>();
+				list = new ArrayList<>();
 			}
 		}
 		return res;

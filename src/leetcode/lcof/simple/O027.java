@@ -13,10 +13,10 @@ public class O027 {
 	public TreeNode mirrorTree(TreeNode root) {
 		if (root == null)
 			return null;
-		TreeNode left = mirrorTree(root.left);
-		TreeNode right = mirrorTree(root.right);
-		root.left = right;
-		root.right = left;
+		TreeNode left = mirrorTree(root.right);
+		TreeNode right = mirrorTree(root.left);
+		root.left = left;
+		root.right = right;
 		return root;
 	}
 

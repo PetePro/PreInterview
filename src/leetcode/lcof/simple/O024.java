@@ -11,12 +11,12 @@ import leetcode.ListNode;
 public class O024 {
 
 	public ListNode reverseList(ListNode head) {
-		ListNode pre = null, cur = head, next = null;
+		ListNode pre = null, cur = head;
 		while (cur != null) {
-			next = cur.next;
+			ListNode post = cur.next;
 			cur.next = pre;
 			pre = cur;
-			cur = next;
+			cur = post;
 		}
 		return pre;
 	}

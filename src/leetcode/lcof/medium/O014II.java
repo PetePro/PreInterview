@@ -12,17 +12,16 @@ package leetcode.lcof.medium;
 public class O014II {
 
 	public int cuttingRope(int n) {
-		if (n == 1 || n == 2)
-			return 1;
-		if (n == 3)
-			return 2;
-		long res = 1;
+		if (n <= 3)
+			return n - 1;
+		long sum = 1;
 		while (n > 4) {
-			res *= 3;
-			res %= 1000000007;
+			sum *= 3;
 			n -= 3;
+			sum %= 1000000007;
 		}
-		return (int) (res * n % 1000000007);
+		sum *= n;
+		return (int) (sum %= 1000000007);
 	}
 
 }

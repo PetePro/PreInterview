@@ -14,17 +14,17 @@ public class O026 {
 	public boolean isSubStructure(TreeNode A, TreeNode B) {
 		if (A == null || B == null)
 			return false;
-		return isSame(A, B) || isSubStructure(A.left, B) || isSubStructure(A.right, B);
+		return isSub(A, B) || isSubStructure(A.left, B) || isSubStructure(A.right, B);
 	}
 
-	public boolean isSame(TreeNode a, TreeNode b) {
-		if (b == null)
+	public boolean isSub(TreeNode A, TreeNode B) {
+		if (A == null)
+			return false;
+		if (B == null)
 			return true;
-		if (a == null)
+		if (A.val != B.val)
 			return false;
-		if (a.val != b.val)
-			return false;
-		return isSame(a.left, b.left) && isSame(a.right, b.right);
+		return isSub(A.left, B.left) && isSub(A.right, B.right);
 	}
 
 }

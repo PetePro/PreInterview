@@ -11,17 +11,17 @@ public class O013 {
 
 	public int movingCount(int m, int n, int k) {
 		boolean[][] isVisited = new boolean[m][n];
-		return dfs(m, n, k, 0, 0, isVisited);
+		return dfs(m, n, k, isVisited, 0, 0);
 	}
 
-	private int dfs(int m, int n, int k, int i, int j, boolean[][] isVisited) {
+	public int dfs(int m, int n, int k, boolean[][] isVisited, int i, int j) {
 		if (i < 0 || j < 0 || i == m || j == n || i / 10 + i % 10 + j / 10 + j % 10 > k || isVisited[i][j])
 			return 0;
 		isVisited[i][j] = true;
-		return dfs(m, n, k, i + 1, j, isVisited)
-				+ dfs(m, n, k, i - 1, j, isVisited)
-				+ dfs(m, n, k, i, j + 1, isVisited)
-				+ dfs(m, n, k, i, j - 1, isVisited)
+		return dfs(m, n, k, isVisited, i + 1, j)
+				+ dfs(m, n, k, isVisited, i, j + 1)
+				+ dfs(m, n, k, isVisited, i - 1, j)
+				+ dfs(m, n, k, isVisited, i, j - 1)
 				+ 1;
 	}
 

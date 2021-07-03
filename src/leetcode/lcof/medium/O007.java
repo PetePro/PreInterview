@@ -13,21 +13,20 @@ import leetcode.TreeNode;
 public class O007 {
 
 	public TreeNode buildTree(int[] preorder, int[] inorder) {
-		int n = preorder.length;
-		if (n == 0)
+		if (preorder.length == 0)
 			return null;
 		int rootIndex = 0;
-		for (int i = 0; i < n; i++) {
+		for (int i = 0; i < inorder.length; i++) {
 			if (inorder[i] == preorder[0]) {
 				rootIndex = i;
 				break;
 			}
 		}
-		TreeNode root = new TreeNode(preorder[0]);
+		TreeNode root = new TreeNode(inorder[rootIndex]);
 		root.left = buildTree(Arrays.copyOfRange(preorder, 1, 1 + rootIndex),
 				Arrays.copyOfRange(inorder, 0, rootIndex));
-		root.right = buildTree(Arrays.copyOfRange(preorder, 1 + rootIndex, n),
-				Arrays.copyOfRange(inorder, rootIndex + 1, n));
+		root.right = buildTree(Arrays.copyOfRange(preorder, 1 + rootIndex, preorder.length),
+				Arrays.copyOfRange(inorder, rootIndex + 1, inorder.length));
 		return root;
 	}
 

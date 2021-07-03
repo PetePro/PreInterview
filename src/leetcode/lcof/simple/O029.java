@@ -9,10 +9,12 @@ package leetcode.lcof.simple;
 public class O029 {
 
 	public int[] spiralOrder(int[][] matrix) {
+		if (matrix.length == 0)
+			return new int[0];
 		int m = matrix.length, n = matrix[0].length;
-		int total = m * n, count = 0;
+		int[] res = new int[m * n];
+		int count = 0;
 		int left = 0, right = n - 1, up = 0, down = m - 1;
-		int[] res = new int[total];
 		while (true) {
 			for (int i = left; i <= right; i++)
 				res[count++] = matrix[up][i];
@@ -32,13 +34,6 @@ public class O029 {
 				break;
 		}
 		return res;
-	}
-
-	public static void main(String[] args) {
-		int[][] matrix1 = { { 1, 2, 3, 4 }, { 5, 6, 7, 8 }, { 9, 10, 11, 12 } };
-		int[] res = new O029().spiralOrder(matrix1);
-		for (int i = 0; i < res.length; i++)
-			System.out.println(res[i]);
 	}
 
 }

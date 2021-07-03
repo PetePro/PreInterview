@@ -8,34 +8,13 @@ package leetcode.lcof.simple;
  * 
  */
 
-import java.util.ArrayList;
-
 public class O017 {
 
 	public int[] printNumbers(int n) {
-		ArrayList<Integer> ret = new ArrayList<>();
-		int[] cur = new int[n];
-		helper(ret, cur, n, 0);
-		return ret.stream().mapToInt(i -> i).toArray();
-	}
-
-	public void helper(ArrayList<Integer> ret, int[] cur, int n, int index) {
-		if (index >= n) {
-			int num = arrayToInt(cur);
-			if (num != 0)
-				ret.add(arrayToInt(cur));
-			return;
-		}
-		for (int i = 0; i <= 9; i++) {
-			cur[index] = i;
-			helper(ret, cur, n, index + 1);
-		}
-	}
-
-	public int arrayToInt(int[] arr) {
-		int res = 0;
-		for (int i = 0; i < arr.length; i++)
-			res = res * 10 + arr[i];
+		int num = (int) Math.pow(10, n) - 1;
+		int[] res = new int[num];
+		for (int i = 0; i < num; i++)
+			res[i] = i + 1;
 		return res;
 	}
 

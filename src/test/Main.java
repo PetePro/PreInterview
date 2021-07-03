@@ -1,4 +1,4 @@
-package newcoder.test;
+package test;
 
 import java.util.Scanner;
 

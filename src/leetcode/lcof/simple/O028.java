@@ -13,15 +13,15 @@ public class O028 {
 	public boolean isSymmetric(TreeNode root) {
 		if (root == null)
 			return true;
-		return helper(root.left, root.right);
+		return isSymmetric(root.left, root.right);
 	}
 
-	private boolean helper(TreeNode left, TreeNode right) {
+	public boolean isSymmetric(TreeNode left, TreeNode right) {
 		if (left == null && right == null)
 			return true;
 		if (left == null || right == null)
 			return false;
-		return left.val == right.val && helper(left.left, right.right) && helper(left.right, right.left);
+		return left.val == right.val && isSymmetric(left.left, right.right) && isSymmetric(left.right, right.left);
 	}
 
 }

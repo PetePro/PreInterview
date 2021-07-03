@@ -40,7 +40,7 @@ public class O036 {
 		return head;
 	}
 
-	void inOrder(Node root) {
+	public void inOrder(Node root) {
 		if (root == null)
 			return;
 		inOrder(root.left);

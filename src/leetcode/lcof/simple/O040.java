@@ -11,29 +11,30 @@ import java.util.Arrays;
 public class O040 {
 
 	public int[] getLeastNumbers(int[] arr, int k) {
-		int low = 0, high = arr.length - 1;
-		while (low < high) {
-			int i = partition(arr, low, high);
-			if (i >= k)
-				high = i - 1;
-			if (i <= k)
-				low = i + 1;
+		for (int i = (k - 1) / 2; i >= 0; i--)
+			adjustHeap(arr, i, k);
+		for (int i = k; i < arr.length; i++) {
+			if (arr[0] > arr[i]) {
+				arr[0] = arr[i];
+				adjustHeap(arr, 0, k);
+			}
 		}
-		return Arrays.copyOf(arr, k);
+		return Arrays.copyOfRange(arr, 0, k);
 	}
 
-	private int partition(int[] arr, int low, int high) {
-		int pivot = arr[low];
-		while (low < high) {
-			while (low < high && arr[high] >= pivot)
-				high--;
-			arr[low] = arr[high];
-			while (low < high && arr[low] <= pivot)
-				low++;
-			arr[high] = arr[low];
+	public void adjustHeap(int[] heap, int i, int k) {
+		int left = 2 * i + 1, right = 2 * i + 2;
+		int max = i;
+		if (left < k && heap[left] > heap[max])
+			max = left;
+		if (right < k && heap[right] > heap[max])
+			max = right;
+		if (max != i) {
+			int temp = heap[i];
+			heap[i] = heap[max];
+			heap[max] = temp;
+			adjustHeap(heap, max, k);
 		}
-		arr[low] = pivot;
-		return low;
 	}
 
 }

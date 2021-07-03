@@ -11,16 +11,17 @@ import leetcode.ListNode;
 public class O006 {
 
 	public int[] reversePrint(ListNode head) {
-		int num = 0;
 		ListNode p = head;
+		int n = 0;
 		while (p != null) {
-			num++;
 			p = p.next;
+			n++;
 		}
+		int[] res = new int[n];
 		p = head;
-		int[] res = new int[num];
-		for (int i = num - 1; i >= 0; i--) {
-			res[i] = p.val;
+		int i = n - 1;
+		while (p != null) {
+			res[i--] = p.val;
 			p = p.next;
 		}
 		return res;

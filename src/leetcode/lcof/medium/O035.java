@@ -5,6 +5,11 @@ import leetcode.Node;
 /**
  * 面试题35. 复杂链表的复制
  * 请实现 copyRandomList 函数，复制一个复杂链表。在复杂链表中，每个节点除了有一个 next 指针指向下一个节点，还有一个 random 指针指向链表中的任意节点或者 null。
+ * 
+ * 思路：
+ * 步骤一：在当前结点后复制一个同样的
+ * 步骤二：补全各个新结点的random
+ * 步骤三：拆分
  *
  */
 
@@ -12,34 +17,31 @@ public class O035 {
 
 	public Node copyRandomList(Node head) {
 		if (head == null)
-			return head;
-		// 完成链表节点的复制
+			return null;
 		Node cur = head;
 		while (cur != null) {
-			Node copyNode = new Node(cur.val);
-			copyNode.next = cur.next;
-			cur.next = copyNode;
+			Node node = new Node(cur.val);
+			node.next = cur.next;
+			cur.next = node;
 			cur = cur.next.next;
 		}
-		// 完成链表复制节点的随机指针复制
 		cur = head;
 		while (cur != null) {
 			if (cur.random != null)
 				cur.next.random = cur.random.next;
 			cur = cur.next.next;
 		}
-		// 将链表一分为二
 		cur = head;
-		Node copyHead = head.next, copyCur = head.next;
+		Node newHead = head.next, newCur = newHead;
 		while (cur != null) {
 			cur.next = cur.next.next;
 			cur = cur.next;
-			if (copyCur.next != null) {
-				copyCur.next = copyCur.next.next;
-				copyCur = copyCur.next;
+			if (newCur.next != null) {
+				newCur.next = newCur.next.next;
+				newCur = newCur.next;
 			}
 		}
-		return copyHead;
+		return newHead;
 	}
 
 }

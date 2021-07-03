@@ -9,19 +9,19 @@ package leetcode.lcof.medium;
 public class O033 {
 
 	public boolean verifyPostorder(int[] postorder) {
-		return recur(postorder, 0, postorder.length - 1);
+		return verifyPostorder(postorder, 0, postorder.length - 1);
 	}
 
-	boolean recur(int[] postorder, int i, int j) {
+	public boolean verifyPostorder(int[] postorder, int i, int j) {
 		if (i >= j)
 			return true;
 		int l = i;
 		while (postorder[l] < postorder[j])
 			l++;
-		int m = l;
-		while (postorder[l] > postorder[j])
-			l++;
-		return l == j && recur(postorder, i, m - 1) && recur(postorder, m, j - 1);
+		int r = l;
+		while (postorder[r] > postorder[j])
+			r++;
+		return r == j && verifyPostorder(postorder, i, l - 1) && verifyPostorder(postorder, l, r - 1);
 	}
 
 }

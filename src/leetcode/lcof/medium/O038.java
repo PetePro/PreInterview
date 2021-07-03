@@ -2,6 +2,7 @@ package leetcode.lcof.medium;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 /**
  * 面试题38. 字符串的排列
@@ -15,29 +16,29 @@ public class O038 {
 	public String[] permutation(String s) {
 		char[] ch = s.toCharArray();
 		Arrays.sort(ch);
-		ArrayList<String> res = new ArrayList<>();
-		boolean[] flag = new boolean[ch.length];
-		permutation(res, new StringBuilder(), ch, flag);
-		String[] result = new String[res.size()];
-		for (int i = 0; i < result.length; i++)
-			result[i] = res.get(i);
-		return result;
+		List<String> list = new ArrayList<>();
+		boolean[] used = new boolean[ch.length];
+		permutation(ch, list, new StringBuilder(), used);
+		String[] res = new String[list.size()];
+		for (int i = 0; i < res.length; i++)
+			res[i] = list.get(i);
+		return res;
 	}
 
-	private void permutation(ArrayList<String> res, StringBuilder sb, char[] ch, boolean[] flag) {
+	public void permutation(char[] ch, List<String> res, StringBuilder sb, boolean[] used) {
 		if (sb.length() == ch.length) {
 			res.add(sb.toString());
 			return;
 		}
 		for (int i = 0; i < ch.length; i++) {
-			if (!flag[i]) {
-				if (i > 0 && ch[i] == ch[i - 1] && !flag[i - 1])
+			if (!used[i]) {
+				if (i > 0 && ch[i] == ch[i - 1] && !used[i - 1])
 					continue;
 				else {
 					sb.append(ch[i]);
-					flag[i] = true;
-					permutation(res, sb, ch, flag);
-					flag[i] = false;
+					used[i] = true;
+					permutation(ch, res, sb, used);
+					used[i] = false;
 					sb.deleteCharAt(sb.length() - 1);
 				}
 			}
@@ -45,7 +46,7 @@ public class O038 {
 	}
 
 	public static void main(String[] args) {
-		String[] s = new O038().permutation("abc");
+		String[] s = new O038().permutation("abb");
 		for (int i = 0; i < s.length; i++)
 			System.out.println(s[i]);
 	}

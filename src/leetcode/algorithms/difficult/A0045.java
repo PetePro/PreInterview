@@ -32,4 +32,8 @@ public class A0045 {
 		return steps;
 	}
 
+	public static void main(String[] args) {
+		System.out.println(new A0045().jump(new int[] { 2, 3, 1, 1, 4 }));
+	}
+
 }
